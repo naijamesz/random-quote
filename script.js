@@ -6,7 +6,6 @@ const newQuoteBtn = document.getElementById('new-quote')
 const loader = document.getElementById('loader')
 
 let apiQuotes = []
-
 // Loading Spinner Shown
 function loading() {
   loader.hidden = false
