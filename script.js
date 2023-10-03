@@ -6,21 +6,21 @@ const newQuoteBtn = document.getElementById('new-quote')
 const loader = document.getElementById('loader')
 
 let apiQuotes = []
-// Loading Spinner Shown
-function loading() {
+// Loading Spinner Show
+function showLoadingSpinner() {
   loader.hidden = false
   quoteContainer.hidden = true
 }
 
 // Remove Loading Spinner
-function complete() {
+function removeLoadingSpinner() {
   quoteContainer.hidden = false
   loader.hidden = true
 }
 
 // Show New Quote
 function newQuote() {
-  loading()
+  showLoadingSpinner()
   // Pick a random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
   // check if author field is blank and replace it with 'Unknown'
@@ -37,12 +37,12 @@ function newQuote() {
   }
   // Set Quote, Hide Loader
   quoteText.textContent = quote.text
-  complete() // call function complete
+  removeLoadingSpinner() // call function removeLoadingSpinner
 }
 
 // Get Quotes From API
 async function getQuotes() {
-  loading()
+  showLoadingSpinner()
   const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json'
   try {
     const response = await fetch(apiUrl)
@@ -75,20 +75,20 @@ getQuotes()
 // let apiQuotes = []
 
 // // Loading Spinner Shown
-// function loading() {
+// function showLoadingSpinner() {
 //   loader.hidden = false
 //   quoteContainer.hidden = true
 // }
 
 // // Remove Loading Spinner
-// function complete() {
+// function removeLoadingSpinner() {
 //   quoteContainer.hidden = false
 //   loader.hidden = true
 // }
 
 // // Show New Quote
 // function newQuote() {
-//   loading()
+//   showLoadingSpinner()
 //   // Pick a random quote from apiQuotes array
 //   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
 //   // Check if Author field is blank and replace it with 'Unknown'
@@ -105,12 +105,12 @@ getQuotes()
 //   }
 //   // Set Quote, Hide Loader
 //   quoteText.textContent = quote.text
-//   complete()
+//   removeLoadingSpinner()
 // }
 
 // // Get Quotes From API
 // async function getQuotes() {
-//   loading()
+//   showLoadingSpinner()
 //   const apiUrl = 'https://type.fit/api/quotes'
 //   try {
 //     const response = await fetch(apiUrl)
